@@ -2,7 +2,7 @@ package gitPractice;
 
 public class Food {
 
-	private String favoriteFood;
+	String favoriteFood;
 	
 	public Food (String favoriteFood) {
 		this.favoriteFood = favoriteFood;
