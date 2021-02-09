@@ -2,6 +2,9 @@ package gitPractice;
 
 public class Food {
 
+	/**
+	 * Food class initializes instance variables
+	 */
 	String favoriteFood;
 	/**
 	 * 
