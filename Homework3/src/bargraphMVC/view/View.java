@@ -49,10 +49,10 @@ public class View extends JFrame {
 	            String value = textField.getText();
 	                 
 	            try {
-	            	this.queue.put(new AddNMessage(textField.getText(), textField2.getText(), textField3.getText()));
-//	                Message msg = new AddNMessage(value);
-//	                queue.put(msg);
-	 
+//	            	this.queue.put(new AddNMessage(textField.getText(), textField2.getText(), textField3.getText()));
+	                Message msg = new AddNMessage(value);
+	                queue.put(msg);
+//	 
 	            } catch (InterruptedException exception) {
 	                // do nothing
 	            }
@@ -80,9 +80,6 @@ public class View extends JFrame {
 	        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    }
 
-	    public View(BlockingQueue<Message> queue4, String num, String string) {
-			// TODO Auto-generated constructor stub
-		}
 
 		public void updateColorName(String value) {
 	        this.colorNameLabel.setText(value);
