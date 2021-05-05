@@ -14,8 +14,8 @@ import bargraphMVC.controller.Message;
 
 public class View extends JFrame {
 	 BlockingQueue<Message> queue;
-	 BlockingQueue<Message> queue2;
-	 BlockingQueue<Message> queue3;
+//	 BlockingQueue<Message> queue2;
+//	 BlockingQueue<Message> queue3;
 
 	    JTextField textField, textField2, textField3;
 	    JButton updateNumButton, updateNumButton2, updateNumButton3;
@@ -23,11 +23,11 @@ public class View extends JFrame {
 	    JLabel numLabel, numLabel2, numLabel3;
 	    
 
-	    public View(BlockingQueue<Message> queue, BlockingQueue<Message> queue2,BlockingQueue<Message> queue3,String num) {
+	    public View(BlockingQueue<Message> queue,String num) {
 	        
 	    	this.queue = queue;
-	    	this.queue2 = queue;
-	    	this.queue3 = queue;
+//	    	this.queue2 = queue;
+//	    	this.queue3 = queue;
 
 	        this.colorNameLabel = new JLabel("Red");
 	        this.numLabel = new JLabel(String.valueOf(num));
@@ -43,53 +43,20 @@ public class View extends JFrame {
 	        this.colorNameLabel3 = new JLabel("Green");
 	        this.numLabel3 = new JLabel(String.valueOf(num));
 	        this.textField3 = new JTextField(10);
-//	        this.updateNumButton3 = new JButton("Update N");
+	        this.updateNumButton3 = new JButton("Update N");
 //	        
 	        updateNumButton.addActionListener(e -> {
 	            String value = textField.getText();
-	            String value2 = textField2.getText();
-	            String value3 = textField3.getText();
-	            
+	                 
 	            try {
-	                Message msg = new AddNMessage(value);
-	                Message msg2 = new AddNMessage(value2);
-	                Message msg3 = new AddNMessage(value3);
-	                queue.put(msg);
-	                queue2.put(msg2);
-	                queue3.put(msg3);
+	            	this.queue.put(new AddNMessage(textField.getText(), textField2.getText(), textField3.getText()));
+//	                Message msg = new AddNMessage(value);
+//	                queue.put(msg);
+	 
 	            } catch (InterruptedException exception) {
 	                // do nothing
 	            }
 	        });
-
-//	        updateNumButton2.addActionListener(e -> {
-//	            String value = textField2.getText();
-//	            
-//	            try {
-//	                Message msg = new AddNMessage(value);
-//	                queue.put(msg);
-//	            } catch (InterruptedException exception) {
-//	                // do nothing
-//	            }
-//	        });
-//	        updateNumButton3.addActionListener(e -> {
-//	            String value = textField3.getText();
-//	            
-//	            try {
-//	                Message msg = new AddNMessage(value);
-//	                queue.put(msg);
-//	            } catch (InterruptedException exception) {
-//	                // do nothing
-//	            }
-//	        });
-//	        addClassButton.addActionListener(e -> {
-//	            String value = textField.getText();
-//	            try {
-//	                queue.put(new AddClassMessage(value));
-//	            } catch (InterruptedException exception) {
-//	                // do nothing
-//	            }
-//	        });
 
 	        this.add(colorNameLabel);
 	        this.add(numLabel);
@@ -107,9 +74,6 @@ public class View extends JFrame {
 
 	        this.add(updateNumButton);
 
-
-
-
 	        this.setSize(800, 800);
 	        this.setLayout(new FlowLayout());
 	        this.setVisible(true);
@@ -124,7 +88,7 @@ public class View extends JFrame {
 	        this.colorNameLabel.setText(value);
 	    }
 
-	    public void updateListOfClassesInView(String num) {
+	    public void updateNumberInView(String num) {
 	        this.numLabel.setText(num.toString());
 	    }
 	    

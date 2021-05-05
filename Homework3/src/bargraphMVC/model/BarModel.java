@@ -1,17 +1,16 @@
 package bargraphMVC.model;
 
-import java.util.ArrayList;
-
 public class BarModel {
     private String num;
     private String color;
 //    private ArrayList<String> classes = new ArrayList<>();
 
-    public void setNum(String num) {
+    public void setNum(String blue, String green, String red) {
     	int n = Integer.parseInt(num);
         if (n>0) {
             this.num = num;
         }
+
     }
     
     public void setColor(String color) {

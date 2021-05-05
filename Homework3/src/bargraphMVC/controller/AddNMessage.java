@@ -1,13 +1,25 @@
 package bargraphMVC.controller;
 
 public class AddNMessage implements Message{
-	private String n;
+	private String blue;
+	private String green;
+	private String red;
 	
-	public AddNMessage(String n) {
-		this.n = n;
+	public AddNMessage(String blue, String green, String red) {
+		this.blue = blue;
+		this.green = green;
+		this.red = red;
 	}
-	public String getN() {
-		return n;
+	public String getBlue() {
+		return blue;
+	}
+	
+	public String getRed() {
+		return red;
+	}
+	
+	public String getGreen() {
+		return green;
 	}
 
 }

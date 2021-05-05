@@ -14,21 +14,14 @@ import bargraphMVC.view.View;
 
 class App {
 	public static void main(String[] args) {
-		JPanel pnl = new JPanel(new FlowLayout());
+
 		BlockingQueue<Message> queue = new LinkedBlockingQueue<>();
-		BlockingQueue<Message> queue2 = new LinkedBlockingQueue<>();
-		BlockingQueue<Message> queue3 = new LinkedBlockingQueue<>();
 
 		BarModel model = new BarModel();
-	
-		View view = new View(queue,queue2, queue3, model.getNum());
-		Controller controller = new Controller(queue,queue2, queue3, model, view);
+
+		View view = new View(queue, model.getNum());
+		Controller controller = new Controller(queue, model, view);
 		controller.mainLoop();
-		
-//		BarModel model2 = new BarModel();
-//		View view2  = new View(queue2, model2.getNum(), "green");
-//		Controller controller2 = new Controller(queue2, model2, view2);
-//		controller2.mainLoop();
 
 	}
 }
