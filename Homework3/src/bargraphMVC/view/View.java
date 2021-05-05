@@ -18,7 +18,7 @@ public class View extends JFrame {
 //	 BlockingQueue<Message> queue3;
 
 	    JTextField textField, textField2, textField3;
-	    JButton updateNumButton, updateNumButton2, updateNumButton3;
+	    JButton updateNumButton,resetButton;
 	    JLabel colorNameLabel, colorNameLabel2, colorNameLabel3;
 	    JLabel numLabel, numLabel2, numLabel3;
 	    
@@ -43,15 +43,30 @@ public class View extends JFrame {
 	        this.colorNameLabel3 = new JLabel("Green");
 	        this.numLabel3 = new JLabel(String.valueOf(num));
 	        this.textField3 = new JTextField(10);
-	        this.updateNumButton3 = new JButton("Update N");
+//	        this.updateNumButton3 = new JButton("Update N");
 //	        
+	        this.resetButton = new JButton("Reset");
+	        
 	        updateNumButton.addActionListener(e -> {
 	            String value = textField.getText();
 	                 
 	            try {
-//	            	this.queue.put(new AddNMessage(textField.getText(), textField2.getText(), textField3.getText()));
-	                Message msg = new AddNMessage(value);
+	            	this.queue.put(new AddNMessage(textField.getText(), textField2.getText(), textField3.getText()));
+//	                Message msg = new AddNMessage(value);
+//	                queue.put(msg);
+//	 
+	            } catch (InterruptedException exception) {
+	                // do nothing
+	            }
+	        });
+	        resetButton.addActionListener(e -> {
+	            String value = "0";
+	                 
+	            try {
+//	            	this.queue.put(new AddNMessage("0", "0", "0"));
+	                Message msg = new AddNMessage(value,value,value);
 	                queue.put(msg);
+	      
 //	 
 	            } catch (InterruptedException exception) {
 	                // do nothing
@@ -73,6 +88,7 @@ public class View extends JFrame {
 //	        this.add(updateNumButton3);
 
 	        this.add(updateNumButton);
+	        this.add(resetButton);
 
 	        this.setSize(800, 800);
 	        this.setLayout(new FlowLayout());
@@ -85,25 +101,17 @@ public class View extends JFrame {
 	        this.colorNameLabel.setText(value);
 	    }
 
-	    public void updateNumberInView(String num) {
+	    public void updateNumberInView(String num, String num2, String num3) {
 	        this.numLabel.setText(num.toString());
+	        this.numLabel2.setText(num2.toString());
+	        this.numLabel3.setText(num3.toString());
 	    }
 	    
-//	    public void updateColorName2(String value) {
-//	        this.colorNameLabel2.setText(value);
-//	    }
-//
-//	    public void updateListOfClassesInView2(String num) {
-//	        this.numLabel2.setText(num.toString());
-//	    }
-//	    
-//	    public void updateColorName3(String value) {
-//	        this.colorNameLabel3.setText(value);
-//	    }
-//
-//	    public void updateListOfClassesInView3(String num) {
-//	        this.numLabel3.setText(num.toString());
-//	    }
-//	    
+	    public void updateResetInView() {
+	        this.numLabel.setText("0");
+	        this.numLabel2.setText("0");
+	        this.numLabel3.setText("0");
+	    }
+
 	  
 }

@@ -39,8 +39,27 @@ public class Controller {
                 // button addClass was clicked
                 // update model and view
                 AddNMessage num = (AddNMessage) message;
-                barModel.setNum(num.getN());
-                view.updateNumberInView(barModel.getNum());
+                AddNMessage num2 = (AddNMessage) message;
+                AddNMessage num3 = (AddNMessage) message;
+                barModel.setNum(num.getNum(), num2.getNum2(), num3.getNum3());
+                view.updateNumberInView(barModel.getNum(), barModel.getNum2(), barModel.getNum3());
+                  
+               
+                }
+             if(message.getClass() == ResetMessage.class) {
+                 // button addClass was clicked
+                 // update model and view
+                 ResetMessage num = (ResetMessage) message;
+                 ResetMessage num2 = (ResetMessage) message;
+                 ResetMessage num3 = (ResetMessage) message;
+                 barModel.resetNum(num.getNum(), num2.getNum2(), num3.getNum3());
+                 view.updateResetInView();
+            
+                
+                 }
+                
+              
+              
              
 //                
 //                AddNMessage num2 = (AddNMessage) message2;
@@ -50,7 +69,7 @@ public class Controller {
 //                AddNMessage num3 = (AddNMessage) message3;
 //                barModel.setNum(num3.getN());
 //                view.updateListOfClassesInView(barModel3.getNum());
-            }
+           
 
         }
     }
