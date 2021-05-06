@@ -23,9 +23,9 @@ public class BarModel {
 
     }
     public void resetNum(String num, String num2, String num3) {
-    	this.num = "0";
-    	this.num2 = "0";
-    	this.num3 = "0";
+    	this.num = num;
+    	this.num2 = num2;
+    	this.num3 = num3;
     }
     
     public void setColor(String color) {

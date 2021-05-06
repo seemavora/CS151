@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import bargraphMVC.controller.AddNMessage;
 import bargraphMVC.controller.Message;
+import bargraphMVC.controller.ResetMessage;
 
 public class View extends JFrame {
 	 BlockingQueue<Message> queue;
@@ -63,9 +64,9 @@ public class View extends JFrame {
 	            String value = "0";
 	                 
 	            try {
-//	            	this.queue.put(new AddNMessage("0", "0", "0"));
-	                Message msg = new AddNMessage(value,value,value);
-	                queue.put(msg);
+            	this.queue.put(new ResetMessage("0", "0", "0"));
+//	                Message msg = new AddNMessage(value,value,value);
+//	                queue.put(msg);
 	      
 //	 
 	            } catch (InterruptedException exception) {
